@@ -22,13 +22,23 @@
                         :isInset="true"
                         :label="inset.label"
                         :markers="[]"
+                        @marker-click="handleMarkerClick"
                     />
                 </div>
             </div>
         </aside>
 
         <main class="flex-1 relative">
-            <MapComponent ref="mapRef" :zoom="4" :center="[-98.5795, 39.8283]" />
+            <MapComponent
+                ref="mapRef"
+                :zoom="4"
+                :center="[-98.5795, 39.8283]"
+                @marker-click="handleMarkerClick"
+            />
+            <LocationDetail
+                :location="selectedLocation"
+                @close="selectedLocation = null"
+            />
         </main>
     </div>
 </template>
@@ -36,8 +46,10 @@
 <script setup>
 import { ref } from "vue";
 import MapComponent from "./components/MapComponent.vue";
+import LocationDetail from "./components/LocationDetail.vue";
 
 const mapRef = ref(null);
+const selectedLocation = ref(null);
 
 const insets = [
     { label: "Alaska", center: [-152.479, 64.2], zoom: 2 },
@@ -46,6 +58,10 @@ const insets = [
     { label: "Guam/Northern Mariana", center: [144.7, 13.5], zoom: 7 },
     { label: "American Samoa", center: [-170.7, -14.3], zoom: 8 },
 ];
+
+const handleMarkerClick = (location) => {
+    selectedLocation.value = location;
+};
 
 const jumpTo = (target) => {
     if (mapRef.value) {
