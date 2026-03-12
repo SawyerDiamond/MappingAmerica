@@ -35,6 +35,10 @@
                 :center="[-98.5795, 39.8283]"
                 @marker-click="handleMarkerClick"
             />
+            <ZoomControls
+                @zoom-in="mapRef?.zoomIn()"
+                @zoom-out="mapRef?.zoomOut()"
+            />
             <LocationDetail
                 :location="selectedLocation"
                 @close="selectedLocation = null"
@@ -46,6 +50,7 @@
 <script setup>
 import { ref } from "vue";
 import MapComponent from "./components/MapComponent.vue";
+import ZoomControls from "./components/ZoomControls.vue";
 import LocationDetail from "./components/LocationDetail.vue";
 
 const mapRef = ref(null);
