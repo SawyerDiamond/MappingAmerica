@@ -38,12 +38,17 @@
             <ZoomControls
                 @zoom-in="mapRef?.zoomIn()"
                 @zoom-out="mapRef?.zoomOut()"
+                @add-click="showAddModal = true"
+                @home-click="showHome = true"
+                @refresh-click="() => {}"
             />
             <LocationDetail
                 :location="selectedLocation"
                 @close="selectedLocation = null"
             />
         </main>
+
+        <HomeScreen :show="showHome" @dismiss="showHome = false" />
     </div>
 </template>
 
@@ -52,9 +57,12 @@ import { ref } from "vue";
 import MapComponent from "./components/MapComponent.vue";
 import ZoomControls from "./components/ZoomControls.vue";
 import LocationDetail from "./components/LocationDetail.vue";
+import HomeScreen from "./components/HomeScreen.vue";
 
 const mapRef = ref(null);
 const selectedLocation = ref(null);
+const showAddModal = ref(false);
+const showHome = ref(true);
 
 const insets = [
     { label: "Alaska", center: [-152.479, 64.2], zoom: 2 },
