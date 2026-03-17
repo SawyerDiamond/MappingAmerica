@@ -42,6 +42,7 @@
                 @home-click="showHome = true"
                 @refresh-click="() => {}"
             />
+            <AddModal :show="showAddModal" @close="showAddModal = false" />
             <LocationDetail
                 :location="selectedLocation"
                 @close="selectedLocation = null"
@@ -57,6 +58,7 @@ import { ref } from "vue";
 import MapComponent from "./components/MapComponent.vue";
 import ZoomControls from "./components/ZoomControls.vue";
 import LocationDetail from "./components/LocationDetail.vue";
+import AddModal from "./components/AddModal.vue";
 import HomeScreen from "./components/HomeScreen.vue";
 
 const mapRef = ref(null);
