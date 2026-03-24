@@ -33,6 +33,7 @@
                 ref="mapRef"
                 :zoom="4"
                 :center="[-98.5795, 39.8283]"
+                :markers="locations"
                 @marker-click="handleMarkerClick"
             />
             <ZoomControls
@@ -40,7 +41,7 @@
                 @zoom-out="mapRef?.zoomOut()"
                 @add-click="showAddModal = true"
                 @home-click="showHome = true"
-                @refresh-click="() => {}"
+                @refresh-click="fetchLocations"
             />
             <AddModal :show="showAddModal" @close="showAddModal = false" />
             <LocationDetail
@@ -54,7 +55,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import MapComponent from "./components/MapComponent.vue";
 import ZoomControls from "./components/ZoomControls.vue";
 import LocationDetail from "./components/LocationDetail.vue";
@@ -65,6 +66,22 @@ const mapRef = ref(null);
 const selectedLocation = ref(null);
 const showAddModal = ref(false);
 const showHome = ref(true);
+const locations = ref([]);
+
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";
+
+async function fetchLocations() {
+    try {
+        const res = await fetch(`${API_BASE}/locations`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        locations.value = data.locations ?? [];
+    } catch (err) {
+        console.error("Failed to load locations:", err);
+    }
+}
+
+onMounted(fetchLocations);
 
 const insets = [
     { label: "Alaska", center: [-152.479, 64.2], zoom: 2 },
