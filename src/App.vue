@@ -28,8 +28,9 @@
             </div>
         </aside>
 
-        <main class="flex-1 relative">
+        <main class="flex-1 relative" @mousemove="resetInactivity" @keydown="resetInactivity">
             <MapComponent
+                :key="refreshKey"
                 ref="mapRef"
                 :zoom="4"
                 :center="[-98.5795, 39.8283]"
@@ -41,7 +42,7 @@
                 @zoom-out="mapRef?.zoomOut()"
                 @add-click="showAddModal = true"
                 @home-click="showHome = true"
-                @refresh-click="fetchLocations"
+                @refresh-click="refreshLocations"
             />
             <AddModal :show="showAddModal" @close="showAddModal = false" />
             <LocationDetail
@@ -50,12 +51,12 @@
             />
         </main>
 
-        <HomeScreen :show="showHome" @dismiss="showHome = false" />
+        <HomeScreen :show="showHome" @dismiss="dismissHome" />
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import MapComponent from "./components/MapComponent.vue";
 import ZoomControls from "./components/ZoomControls.vue";
 import LocationDetail from "./components/LocationDetail.vue";
@@ -67,6 +68,10 @@ const selectedLocation = ref(null);
 const showAddModal = ref(false);
 const showHome = ref(true);
 const locations = ref([]);
+const refreshKey = ref(0);
+
+const INACTIVITY_MS = 5 * 60 * 1000;
+let inactivityTimer = null;
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
@@ -81,7 +86,31 @@ async function fetchLocations() {
     }
 }
 
-onMounted(fetchLocations);
+async function refreshLocations() {
+    await fetchLocations();
+    refreshKey.value++;
+}
+
+function resetInactivity() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+        showHome.value = true;
+    }, INACTIVITY_MS);
+}
+
+function dismissHome() {
+    showHome.value = false;
+    resetInactivity();
+}
+
+onMounted(() => {
+    fetchLocations();
+    resetInactivity();
+});
+
+onUnmounted(() => {
+    clearTimeout(inactivityTimer);
+});
 
 const insets = [
     { label: "Alaska", center: [-152.479, 64.2], zoom: 2 },
