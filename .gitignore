@@ -7,3 +7,5 @@ dist-ssr/
 .env.*
 !.env.example
 src-tauri/target/
+.vscode/
+public/images/
