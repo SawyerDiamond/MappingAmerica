@@ -2,7 +2,7 @@
     <Transition name="slide-up">
         <div
             v-if="location"
-            class="absolute bottom-[1.5vh] left-[22vw] w-[22vw] rounded-[1.2vw] overflow-hidden z-200 bg-[rgba(12,24,16,0.88)] backdrop-blur-xl backdrop-saturate-160 border border-white/9 shadow-[0_4px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(0,0,0,0.3)] font-sans"
+            class="absolute bottom-[1.5vh] left-[22vw] w-[22vw] rounded-[1.2vw] overflow-hidden z-200 glass shadow-[0_4px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(0,0,0,0.3)] font-sans"
             role="dialog"
             aria-modal="true"
             :aria-label="location.title"

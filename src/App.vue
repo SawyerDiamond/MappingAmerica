@@ -1,7 +1,7 @@
 <template>
     <div class="flex w-screen h-screen bg-(--primary-bg)">
-        <aside class="sidebar glass absolute top-[1.5vh] left-[1vw] bottom-[1.5vh] w-[20vw] flex flex-col p-[1.2vw] overflow-y-auto z-100 rounded-[1.2vw] transition-transform duration-300">
-            <div class="mb-[1.5vh] pb-[1.2vh] border-b border-(--glass-border)">
+        <aside class="sidebar glass absolute top-[1.5vh] left-[1vw] bottom-[1.5vh] w-[20vw] flex flex-col pt-[1.2vw] px-[1.2vw] pb-[0.75vw] overflow-y-auto z-100 rounded-[1.2vw] transition-transform duration-300">
+            <div class="mb-[1vh]">
                 <div class="flex items-center justify-center gap-[0.6vw] mt-[0.8vh] mb-[0.8vh]">
                     <div class="css-flag" aria-hidden="true">
                         <div class="flag-canton"></div>
@@ -9,7 +9,7 @@
                     <h2 class="font-display text-[0.9vw] font-bold tracking-[0.03em] text-(--text-primary) m-0">Mapping America</h2>
                 </div>
             </div>
-            <div class="flex flex-col gap-[1vh]">
+            <div class="flex flex-col justify-around flex-1">
                 <div
                     v-for="inset in insets"
                     :key="inset.label"
@@ -28,7 +28,7 @@
             </div>
         </aside>
 
-        <main class="flex-1 relative" @mousemove="resetInactivity" @keydown="resetInactivity">
+        <main class="flex-1 relative" @mousemove="resetInactivity" @keydown="resetInactivity" @touchstart.passive="resetInactivity">
             <MapComponent
                 :key="refreshKey"
                 ref="mapRef"
@@ -137,9 +137,9 @@ const jumpTo = (target) => {
 @import "./assets/main.css";
 
 .css-flag {
-    width: 28px;
-    height: 19px;
-    border-radius: 2px;
+    width: 1.5vw;
+    height: 1vw;
+    border-radius: 0.1vw;
     background: repeating-linear-gradient(
         to bottom,
         #B22234 0px, #B22234 1.46px,

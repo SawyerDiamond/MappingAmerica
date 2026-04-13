@@ -24,24 +24,9 @@
                     <p class="text-[0.9vw] text-white/45 m-0">What makes America home to you?</p>
                 </div>
 
-                <!-- QR code placeholder -->
-                <div class="rounded-[1vw] border-2 border-dashed border-white/10 bg-[rgba(22,34,19,0.6)] aspect-square w-[18vw] mx-auto flex items-center justify-center p-[1.5vw] transition-[border-color,background] duration-200 cursor-pointer active:border-[rgba(212,168,83,0.35)] active:bg-[rgba(22,34,19,0.8)]">
-                    <div class="flex flex-col items-center gap-[1vh] text-white/22 text-[0.8vw] tracking-[0.03em]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-[1.8vw]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="5" height="5" rx="1" ry="1"></rect>
-                            <rect x="16" y="3" width="5" height="5" rx="1" ry="1"></rect>
-                            <rect x="3" y="16" width="5" height="5" rx="1" ry="1"></rect>
-                            <path d="M21 16v5"></path>
-                            <path d="M16 21h5"></path>
-                            <path d="M16 16h5"></path>
-                            <path d="M21 8h-5V3"></path>
-                            <path d="M3 8h5V3"></path>
-                            <path d="M3 16h5v5"></path>
-                            <path d="M12 8v8"></path>
-                            <path d="M8 12h8"></path>
-                        </svg>
-                        <span>QR code goes here</span>
-                    </div>
+                <!-- QR code -->
+                <div class="rounded-[1vw] overflow-hidden w-[18vw] mx-auto">
+                    <img src="/images/qr-code.png" alt="QR code to add your location" class="w-full h-full object-contain block" />
                 </div>
             </div>
         </div>

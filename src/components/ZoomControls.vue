@@ -10,7 +10,7 @@
         </button>
 
         <!-- Home + Refresh group -->
-        <div class="flex flex-col rounded-[1vw] overflow-hidden bg-[rgba(12,24,16,0.82)] backdrop-blur-lg backdrop-saturate-180 border border-white/8 shadow-[0_2px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)]" role="group">
+        <div class="flex flex-col rounded-[1vw] overflow-hidden glass shadow-[0_2px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)]" role="group">
             <button
                 class="p-0 bg-transparent border-0 text-(--accent-color) w-[2.8vw] h-[2.8vw] flex items-center justify-center cursor-pointer rounded-[1vw] transition-colors duration-150 active:bg-white/10"
                 aria-label="Home"
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Zoom controls -->
-        <div class="flex flex-col rounded-[1vw] overflow-hidden bg-[rgba(12,24,16,0.82)] backdrop-blur-lg backdrop-saturate-180 border border-white/8 shadow-[0_2px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)]" role="group" aria-label="Map zoom">
+        <div class="flex flex-col rounded-[1vw] overflow-hidden glass shadow-[0_2px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.06)]" role="group" aria-label="Map zoom">
             <button
                 class="p-0 bg-transparent border-0 text-(--accent-color) w-[2.8vw] h-[2.8vw] flex items-center justify-center cursor-pointer rounded-[1vw] transition-colors duration-150 active:bg-white/10"
                 @click="$emit('zoom-in')"

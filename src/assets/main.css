@@ -12,8 +12,8 @@
   --accent-fg: #263D30;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --glass-bg: rgba(12, 24, 16, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-bg: rgba(16, 32, 20, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
 }
 
 body {
@@ -51,3 +51,4 @@ body {
 /* Mapbox Overrides */
 .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left { display: none !important; }
 .mapboxgl-canvas { outline: none; }
+.mapboxgl-canvas-container { touch-action: none; }
