@@ -1,12 +1,12 @@
 <template>
     <div
         class="relative w-full h-full overflow-hidden"
-        :class="isInset ? 'rounded-[12px] border border-white/[0.09] shadow-[0_2px_16px_rgba(0,0,0,0.4)] bg-[var(--secondary-bg)]' : ''"
+        :class="isInset ? 'bg-(--secondary-bg)' : ''"
     >
         <div class="w-full h-full" ref="mapContainer"></div>
         <div
             v-if="label && isInset"
-            class="absolute bottom-2.5 left-2.5 px-[9px] py-[3px] font-sans text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-white/75 bg-[rgba(10,13,20,0.72)] backdrop-blur-[10px] border border-white/10 rounded-[6px] pointer-events-none z-[5]"
+            class="absolute bottom-2.5 left-2.5 px-2.5 py-0.75 font-sans text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-white/75 bg-[rgba(12,24,16,0.72)] backdrop-blur-[10px] border border-white/10 rounded-md pointer-events-none z-5 "
         >{{ label }}</div>
     </div>
 </template>
@@ -158,35 +158,36 @@ defineExpose({
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.22s ease;
-    will-change: transform;
 }
-.map-pin:hover { transform: scale(1.12) translateY(-2px); z-index: 10; }
-.map-pin:hover .pin-head {
+.map-pin:active .pin-head {
     border-color: #d4a853;
     box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.25), 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .pin-head {
-    width: 42px;
-    height: 42px;
+    width: clamp(32px, 2.8vw, 56px);
+    height: clamp(32px, 2.8vw, 56px);
     border-radius: 50%;
     overflow: hidden;
-    border: 2.5px solid rgba(255, 255, 255, 0.85);
+    border: 2.5px solid rgba(237, 232, 212, 0.75);
     box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.35), 0 4px 14px rgba(0, 0, 0, 0.45);
-    background: #111;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #162213;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .pin-head img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 
 .pin-tail {
     width: 2px;
-    height: 10px;
+    height: clamp(8px, 0.7vw, 14px);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
     border-radius: 0 0 2px 2px;
     margin-top: -1px;
 }
 
-.map-pin.mini .pin-head { width: 26px; height: 26px; border-width: 2px; }
-.map-pin.mini .pin-tail { height: 6px; }
+.map-pin.mini .pin-head {
+    width: clamp(18px, 1.8vw, 34px);
+    height: clamp(18px, 1.8vw, 34px);
+    border-width: 2px;
+}
+.map-pin.mini .pin-tail { height: clamp(5px, 0.5vw, 10px); }
 </style>

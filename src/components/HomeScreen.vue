@@ -1,11 +1,12 @@
 <template>
     <Transition name="home-fade">
-        <div v-if="show" class="fixed inset-0 z-[500] flex flex-col bg-[#0c1810] cursor-pointer font-sans" @click="$emit('dismiss')">
+        <div v-if="show" class="fixed inset-0 z-500 flex flex-col bg-[#0c1810] cursor-pointer font-sans" @click="$emit('dismiss')">
             <!-- Background -->
             <div class="absolute inset-0">
-                <img src="/LandingPhoto.webp" alt="American Flags" class="w-full h-full object-cover [object-position:center_30%]" />
+                <img src="/LandingPhoto.webp" alt="American Flags" class="w-full h-full object-cover object-[center_30%]" />
                 <div class="absolute inset-0 bg-[rgba(12,24,16,0.55)]"></div>
             </div>
+
 
             <!-- Nav -->
             <div class="relative z-10 px-10 pt-8">
@@ -22,7 +23,7 @@
                     Every corner<br />
                     <span class="text-[#EDE8D4]">tells a story.</span>
                 </h1>
-                <p class="text-[1rem] leading-[1.65] text-white/65 max-w-[460px] m-0">
+                <p class="text-[1rem] leading-[1.65] text-white/65 max-w-115 m-0">
                     Real memories from real people — pinned to the places that shaped them.
                     Explore the map and see what makes America home.
                 </p>
@@ -33,7 +34,7 @@
                 <div class="flex flex-col items-center gap-3">
                     <div class="text-[11px] tracking-[0.2em] uppercase text-white/35">Touch anywhere to begin</div>
                     <button
-                        class="inline-flex items-center gap-[0.6rem] px-8 py-3 border-[1.5px] border-[rgba(237,232,212,0.5)] rounded-full bg-[rgba(237,232,212,0.1)] backdrop-blur-[12px] text-[#EDE8D4] font-sans text-[0.85rem] font-semibold tracking-[0.04em] cursor-pointer transition-[background,border-color,transform] duration-200 hover:bg-[rgba(237,232,212,0.18)] hover:border-[rgba(237,232,212,0.8)] hover:-translate-y-0.5 active:scale-[0.97]"
+                        class="inline-flex items-center gap-[0.6rem] px-8 py-3 border-[1.5px] border-[rgba(237,232,212,0.5)] rounded-full bg-[rgba(237,232,212,0.1)] backdrop-blur-md text-[#EDE8D4] font-sans text-[0.85rem] font-semibold tracking-[0.04em] cursor-pointer transition-[background,border-color,transform] duration-200 hover:bg-[rgba(237,232,212,0.18)] hover:border-[rgba(237,232,212,0.8)] hover:-translate-y-0.5 active:scale-[0.97]"
                         @click.stop="$emit('dismiss')"
                     >
                         <span>Explore the Map</span>

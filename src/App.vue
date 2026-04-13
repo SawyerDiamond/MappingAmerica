@@ -1,19 +1,19 @@
 <template>
-    <div class="flex w-screen h-screen bg-[var(--primary-bg)]">
-        <aside class="sidebar glass absolute top-4 left-4 bottom-4 w-[300px] flex flex-col p-4 overflow-y-auto z-[100] rounded-[20px] transition-transform duration-300">
-            <div class="mb-4 pb-3 border-b border-[var(--glass-border)]">
-                <div class="flex items-center justify-center gap-2 mt-2 mb-2">
+    <div class="flex w-screen h-screen bg-(--primary-bg)">
+        <aside class="sidebar glass absolute top-[1.5vh] left-[1vw] bottom-[1.5vh] w-[20vw] flex flex-col p-[1.2vw] overflow-y-auto z-100 rounded-[1.2vw] transition-transform duration-300">
+            <div class="mb-[1.5vh] pb-[1.2vh] border-b border-(--glass-border)">
+                <div class="flex items-center justify-center gap-[0.6vw] mt-[0.8vh] mb-[0.8vh]">
                     <div class="css-flag" aria-hidden="true">
                         <div class="flag-canton"></div>
                     </div>
-                    <h2 class="font-display text-[0.9rem] font-bold tracking-[0.03em] text-[var(--text-primary)] m-0">Mapping America</h2>
+                    <h2 class="font-display text-[0.9vw] font-bold tracking-[0.03em] text-(--text-primary) m-0">Mapping America</h2>
                 </div>
             </div>
-            <div class="flex flex-col gap-3">
+            <div class="flex flex-col gap-[1vh]">
                 <div
                     v-for="inset in insets"
                     :key="inset.label"
-                    class="w-full cursor-pointer rounded-[12px] overflow-hidden transition-all duration-200 border-2 border-transparent hover:scale-[1.02] hover:border-[var(--accent-color)] first:h-[160px] h-[140px]"
+                    class="w-full cursor-pointer rounded-[0.8vw] overflow-hidden transition-colors duration-200 border border-white/9 active:border-(--accent-color) first:h-[18vh] h-[15vh]"
                     @click="jumpTo(inset)"
                 >
                     <MapComponent
