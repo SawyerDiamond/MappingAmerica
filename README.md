@@ -33,7 +33,7 @@ npm run tauri build # packaged desktop app
 Create a `.env.local` file:
 
 ```
-VITE_API_BASE=https://your-api-gateway-url
+VITE_API_BASE_URL=https://your-api-gateway-url
 VITE_MAPBOX_TOKEN=pk.your_mapbox_token
 ```
 

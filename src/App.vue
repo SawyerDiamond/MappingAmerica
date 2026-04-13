@@ -73,7 +73,7 @@ const refreshKey = ref(0);
 const INACTIVITY_MS = 5 * 60 * 1000;
 let inactivityTimer = null;
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? "";
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "";
 
 async function fetchLocations() {
     try {
