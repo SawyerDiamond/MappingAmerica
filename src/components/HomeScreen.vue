@@ -11,9 +11,7 @@
             <!-- Nav -->
             <div class="relative z-10 px-10 pt-8">
                 <div class="flex items-center gap-[0.5vw]">
-                    <div class="css-flag" aria-hidden="true">
-                        <div class="flag-canton"></div>
-                    </div>
+                    <img src="/icons/us-flag.webp" alt="" aria-hidden="true" class="h-[1vw] rounded-[0.1vw] shrink-0" />
                     <span class="text-white/90 text-[0.57vw] font-medium tracking-[0.25em] uppercase">Mapping America</span>
                 </div>
             </div>

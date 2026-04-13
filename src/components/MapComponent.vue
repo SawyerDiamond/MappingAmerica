@@ -106,7 +106,7 @@ const addMarkers = (markerList) => {
             if (!props.isInset) {
                 map.value.flyTo({
                     center: markerData.coords,
-                    zoom: 8,
+                    zoom: 15,
                     essential: true,
                 });
             }

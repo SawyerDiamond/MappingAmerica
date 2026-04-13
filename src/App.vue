@@ -3,9 +3,7 @@
         <aside class="sidebar glass absolute top-[1.5vh] left-[1vw] bottom-[1.5vh] w-[20vw] flex flex-col pt-[1.2vw] px-[1.2vw] pb-[0.75vw] overflow-y-auto z-100 rounded-[1.2vw] transition-transform duration-300">
             <div class="mb-[1vh]">
                 <div class="flex items-center justify-center gap-[0.6vw] mt-[0.8vh] mb-[0.8vh]">
-                    <div class="css-flag" aria-hidden="true">
-                        <div class="flag-canton"></div>
-                    </div>
+                    <img src="/icons/us-flag.webp" alt="" aria-hidden="true" class="h-[1.5vw] w-auto rounded-[0.1vw] shrink-0" />
                     <h2 class="font-display text-[0.9vw] font-bold tracking-[0.03em] text-(--text-primary) m-0">Mapping America</h2>
                 </div>
             </div>
@@ -136,23 +134,4 @@ const jumpTo = (target) => {
 <style>
 @import "./assets/main.css";
 
-.css-flag {
-    width: 1.5vw;
-    height: 1vw;
-    border-radius: 0.1vw;
-    background: repeating-linear-gradient(
-        to bottom,
-        #B22234 0px, #B22234 1.46px,
-        #fff 1.46px, #fff 2.92px
-    );
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-.flag-canton {
-    position: absolute;
-    top: 0; left: 0;
-    width: 42%; height: 53%;
-    background: #3C3B6E;
-}
 </style>

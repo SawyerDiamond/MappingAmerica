@@ -8,7 +8,7 @@
             :aria-label="location.title"
         >
             <button
-                class="p-0 absolute top-[1vw] right-[1vw] z-10 w-[1.8vw] h-[1.8vw] rounded-full border border-white/15 bg-black/45 backdrop-blur-8px text-white/75 cursor-pointer flex items-center justify-center leading-none transition-colors duration-150 active:bg-white/15 active:text-white"
+                class="p-0 absolute top-[1vw] right-[1vw] z-10 w-[1.8vw] h-[1.8vw] rounded-full border border-(--accent-color)/20 bg-black/45 backdrop-blur-8px text-(--accent-color) cursor-pointer flex items-center justify-center leading-none transition-colors duration-150 active:bg-white/15"
                 @click="$emit('close')"
                 aria-label="Close"
             >

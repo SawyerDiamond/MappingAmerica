@@ -9,7 +9,7 @@
             >
                 <!-- Close button -->
                 <button
-                    class="p-0 absolute top-[1.2vw] right-[1.2vw] w-[2.2vw] h-[2.2vw] rounded-full border border-white/12 bg-white/5 text-white/50 cursor-pointer flex items-center justify-center leading-none transition-colors duration-150 active:bg-white/15 active:text-white"
+                    class="p-0 absolute top-[1.2vw] right-[1.2vw] w-[2.2vw] h-[2.2vw] rounded-full border border-(--accent-color)/20 bg-white/5 text-(--accent-color) cursor-pointer flex items-center justify-center leading-none transition-colors duration-150 active:bg-white/15"
                     @click="$emit('close')"
                     aria-label="Close"
                 >
